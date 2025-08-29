@@ -39,12 +39,12 @@ The `modality.json` file provides additional information about the state and act
 
 For Dual Camera setup like [so101-table-cleanup](https://huggingface.co/datasets/youliangtan/so101-table-cleanup) dataset, do:
 ```bash
-cp examples/so100_dualcam__modality.json ./demo_data/so101-table-cleanup/meta/modality.json
+cp getting_started/examples/so100_dualcam__modality.json ./demo_data/so101-table-cleanup/meta/modality.json
 ```
 
 For Single Camera setup like [so100_strawberry_grape](https://huggingface.co/spaces/lerobot/visualize_dataset?dataset=youliangtan%2Fso100_strawberry_grape&episode=0) dataset, do:
 ```bash
-cp examples/so100__modality.json ./demo_data/so100_strawberry_grape/meta/modality.json
+cp getting_started/examples/so100__modality.json ./demo_data/so100_strawberry_grape/meta/modality.json
 ```
 
 Then we can load the dataset using the `LeRobotSingleDataset` class.
@@ -56,10 +56,10 @@ Finetuning can be done by using our finetuning `scripts/gr00t_finetune.py`, as a
 
 ```bash
 python scripts/gr00t_finetune.py \
-   --dataset-path /datasets/so101-table-cleanup/ \
+   --dataset-path demo_data/so101-table-cleanup/ \
    --num-gpus 1 \
    --batch-size 64 \
-   --output-dir ~/so101-checkpoints  \
+   --output-dir /home/namikosaito/work2/Isaac-GR00T/eval/so101-table-cleanup  \
    --max-steps 10000 \
    --data-config so100_dualcam \
    --video-backend torchvision_av
@@ -73,10 +73,11 @@ Once the training is done, you can run the following command to visualize the fi
 
 ```bash
 python scripts/eval_policy.py --plot \
+   --save-plot-path "my_plot.png" \
    --embodiment_tag new_embodiment \
    --model_path <YOUR_CHECKPOINT_PATH> \
    --data_config so100_dualcam \
-  --dataset_path /datasets/so101-table-cleanup/ \
+  --dataset_path demo_data/so101-table-cleanup/ \
    --video_backend torchvision_av \
    --modality_keys single_arm gripper
 ```

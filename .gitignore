@@ -1,3 +1,6 @@
+demo_data/so101-table-cleanup/
+eval/
+
 # C extensions
 *.so
 
