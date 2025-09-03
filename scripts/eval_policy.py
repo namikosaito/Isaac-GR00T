@@ -62,7 +62,7 @@ class ArgsConfig:
     See gr00t/experiment/data_config.py for more details.
     """
 
-    steps: int = 150
+    steps: int = 560#850
     """Number of steps to evaluate."""
 
     trajs: int = 1

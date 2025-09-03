@@ -47,7 +47,7 @@ def print_yellow(text: str) -> None:
 class ArgsConfig:
     """Configuration for loading the dataset."""
 
-    dataset_path: List[str] = field(default_factory=lambda: ["demo_data/robot_sim.PickNPlace"])
+    dataset_path: List[str] = field(default_factory=lambda: ["demo_data/my_gr00t_dataset"]) # ["demo_data/robot_sim.PickNPlace"]
     """Path to the dataset."""
 
     embodiment_tag: Literal[tuple(EMBODIMENT_TAG_MAPPING.keys())] = "gr1"
